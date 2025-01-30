@@ -20,6 +20,7 @@ def minkowski_distance(a, b, p=2):
     """
 
     # TODO
+    return np.sum(np.abs(a - b)**p)**(1/p)
 
 
 # k-Nearest Neighbors Model
@@ -51,6 +52,13 @@ class knn:
             p (int, optional): The degree of the Minkowski distance. Defaults to 2.
         """
         # TODO
+        if len(X_train) == len(y_train) and k > 0 and p > 0:
+            self.k = k
+            self.p = p
+            self.x_train = X_train
+            self.y_train = y_train
+        else:
+            print("All the arguments shall have valid values")
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         """
